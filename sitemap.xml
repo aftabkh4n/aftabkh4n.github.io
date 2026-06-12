@@ -51,4 +51,6 @@
   <url><loc>https://aftabkh4n.github.io/tools/favicon-generator/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://aftabkh4n.github.io/tools/svg-to-css/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://aftabkh4n.github.io/tools/json-schema-generator/</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://aftabkh4n.github.io/about.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://aftabkh4n.github.io/privacy.html</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
 </urlset>
