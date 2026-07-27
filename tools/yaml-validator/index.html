@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YAML Validator Online - Free YAML Checker | DevToolbox</title>
-  <meta name="description" content="Validate and format YAML online for free. Paste your YAML and get instant validation results. No login required." />
+  <title>YAML Validator Online - Check, Parse & Convert YAML to JSON | DevToolbox</title>
+  <meta name="description" content="Free online YAML validator and parser. Check YAML syntax, catch errors instantly, and convert YAML to JSON. Works with Kubernetes, Docker Compose and GitHub Actions files. No login required." />
   <link rel="stylesheet" href="../../style.css" />
   <link rel="canonical" href="https://aftabkh4n.github.io/tools/yaml-validator/" />
 </head>
@@ -15,7 +15,7 @@
 </header>
 <div class="container">
   <h1 class="page-title">YAML Validator</h1>
-  <p class="page-subtitle">Paste your YAML below to validate it instantly. See the parsed structure as JSON to verify your YAML is correct.</p>
+  <p class="page-subtitle">Paste your YAML below to check the syntax instantly. Catch indentation and formatting errors, and convert valid YAML to JSON. Works with Kubernetes, Docker Compose, and GitHub Actions files.</p>
 
   <div class="editor-grid">
     <div class="editor-box">
@@ -24,7 +24,7 @@
       <div class="status" id="input-status"></div>
     </div>
     <div class="editor-box">
-      <label>Parsed as JSON - verify structure</label>
+      <label>YAML converted to JSON</label>
       <textarea id="output" style="height:420px" readonly placeholder="Parsed JSON will appear here..."></textarea>
       <div class="status" id="output-status"></div>
     </div>
@@ -40,20 +40,57 @@
   <hr class="divider" />
   <div class="content-section">
     <h2>What is YAML?</h2>
-    <p>YAML stands for YAML Ain't Markup Language. It is a human-readable data serialisation format used in configuration files. Docker Compose files, Kubernetes manifests, GitHub Actions workflows, and many other tools use YAML for their configuration. YAML uses indentation to represent structure which makes it readable but also easy to break with incorrect indentation.</p>
-    <p>Common YAML mistakes include using tabs instead of spaces for indentation, inconsistent indentation levels, missing colons after keys, and incorrect string quoting. This tool catches all of these errors and shows you exactly where the problem is.</p>
+    <p>YAML stands for YAML Ain't Markup Language. It is a human-readable data serialisation format used mainly for configuration files. Docker Compose files, Kubernetes manifests, GitHub Actions workflows, Ansible playbooks, and countless other tools use YAML for their configuration. YAML uses indentation to represent structure which makes it clean to read but also easy to break with a single wrong space.</p>
+    <p>This tool validates your YAML syntax in real time as you type. When the YAML is valid it also converts it to JSON so you can see the parsed structure and confirm it matches what you expect. When the YAML is invalid it shows you the exact error message and location so you can fix it fast.</p>
+
+    <h3>How to Validate YAML</h3>
+    <ol class="steps">
+      <li>Paste your YAML into the input box on the left.</li>
+      <li>The validator checks the syntax instantly as you type.</li>
+      <li>If the YAML is valid you see a green confirmation and the JSON version on the right.</li>
+      <li>If there is an error you see the exact message and where the problem is.</li>
+      <li>Click Copy JSON to copy the converted output to your clipboard.</li>
+    </ol>
+
+    <h3>Common YAML Errors and How to Fix Them</h3>
+    <p>The most common YAML error is using tabs instead of spaces for indentation. YAML does not allow tab characters for indentation at all. You must use spaces. Configure your editor to insert spaces when you press Tab and this whole class of errors disappears.</p>
+    <p>The second most common error is inconsistent indentation. Every level of nesting must use the same number of spaces throughout the file. Mixing two spaces in one place and four in another breaks the structure. Pick a consistent indent, usually two spaces, and keep it the same everywhere.</p>
+    <p>Other frequent errors include a missing colon after a key, a missing space after the colon (YAML needs the space, so it is key: value not key:value), incorrect string quoting when a value contains special characters like colons or the at sign, and using the wrong list syntax. This validator points to the exact line so you do not have to hunt for these by eye.</p>
+
+    <h3>Validating Kubernetes YAML</h3>
+    <p>Kubernetes manifests are one of the biggest sources of YAML frustration because a small indentation mistake can make an entire deployment fail with a confusing error. This tool checks the raw YAML syntax which catches the structural problems before you ever apply the file to a cluster. Paste your deployment, service, or configmap YAML here to confirm the syntax is valid, then convert it to JSON to double check the structure matches the Kubernetes schema you expect.</p>
+
+    <h3>Validating Docker Compose and GitHub Actions Files</h3>
+    <p>Docker Compose files and GitHub Actions workflow files are both YAML and both very sensitive to indentation. A misaligned service definition in a compose file or a wrongly nested step in a workflow will fail silently or with an unhelpful message. Validate the file here first to rule out YAML syntax problems, so that when something does not work you know the issue is in the configuration values and not the YAML structure itself.</p>
+
+    <h3>Converting YAML to JSON</h3>
+    <p>Every valid YAML document can be converted to JSON because YAML is a superset of JSON. When your YAML passes validation this tool automatically shows the JSON equivalent on the right. This is useful when you need to feed configuration into a system that expects JSON, when you want to inspect the exact parsed structure, or when you are debugging why a value is being read differently than you intended.</p>
+
     <h3>YAML vs JSON</h3>
-    <p>YAML is a superset of JSON - all valid JSON is valid YAML. YAML is more human-friendly for writing by hand because it does not require quotes around strings, curly braces around objects, or commas between items. JSON is better for machine generation and API responses.</p>
+    <p>YAML is a superset of JSON, which means all valid JSON is also valid YAML. YAML is friendlier to write by hand because it does not require quotes around most strings, curly braces around objects, or commas between items. It also supports comments, which JSON does not. JSON is better for machine generation and API responses where the extra strictness and lack of ambiguity is an advantage. Many teams write configuration in YAML for readability and let their tools convert it to JSON internally.</p>
+
     <hr class="divider" />
     <h2>Frequently Asked Questions</h2>
     <div class="faq">
       <div class="faq-item">
         <h4>Can I use tabs in YAML?</h4>
-        <p>No. YAML does not allow tabs for indentation. You must use spaces. This is the most common source of YAML errors. Most text editors can be configured to insert spaces when you press the Tab key.</p>
+        <p>No. YAML does not allow tab characters for indentation. You must use spaces. This is the single most common cause of YAML errors. Most editors can be set to insert spaces when you press the Tab key, which prevents the problem entirely.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How many spaces should I use for YAML indentation?</h4>
+        <p>Two spaces per level is the most common convention and is used by most Kubernetes and Docker examples. The exact number does not matter as long as it is consistent throughout the entire file. Never mix different indent sizes in the same document.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Does this tool convert YAML to JSON?</h4>
+        <p>Yes. When your YAML is valid the tool automatically shows the JSON equivalent on the right side. You can copy the JSON with the Copy JSON button. This works for any valid YAML including Kubernetes manifests and Docker Compose files.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Why does my Kubernetes YAML fail validation?</h4>
+        <p>The most likely causes are a tab character somewhere in the file, inconsistent indentation between sections, or a missing space after a colon. This validator shows the exact line and error message so you can find and fix the problem. Note that this checks YAML syntax, not whether the fields match the Kubernetes schema.</p>
       </div>
       <div class="faq-item">
         <h4>Is my YAML safe?</h4>
-        <p>Yes. Everything runs in your browser. Your YAML is never sent to any server.</p>
+        <p>Yes. Everything runs entirely in your browser using a JavaScript YAML parser. Your YAML is never sent to any server and is not stored anywhere.</p>
       </div>
     </div>
   </div>
