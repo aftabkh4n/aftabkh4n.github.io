@@ -4,8 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YAML Validator Online - Check, Parse & Convert YAML to JSON | DevToolbox</title>
-  <meta name="description" content="Free online YAML validator and parser. Check YAML syntax, catch errors instantly, and convert YAML to JSON. Works with Kubernetes, Docker Compose and GitHub Actions files. No login required." />
-  <link rel="stylesheet" href="../../style.css" />
+  <meta name="description" content="Free online YAML validator, checker and parser. Check and validate YAML syntax online, catch errors instantly, and convert YAML to JSON. Works with Kubernetes and Docker Compose files. No login required." />  <link rel="stylesheet" href="../../style.css" />
   <link rel="canonical" href="https://aftabkh4n.github.io/tools/yaml-validator/" />
 </head>
 <body>
@@ -63,6 +62,8 @@
     <h3>Validating Docker Compose and GitHub Actions Files</h3>
     <p>Docker Compose files and GitHub Actions workflow files are both YAML and both very sensitive to indentation. A misaligned service definition in a compose file or a wrongly nested step in a workflow will fail silently or with an unhelpful message. Validate the file here first to rule out YAML syntax problems, so that when something does not work you know the issue is in the configuration values and not the YAML structure itself.</p>
 
+    <h3>YAML Checker, Parser, and Syntax Checker</h3>
+    <p>This tool works as a YAML checker, a YAML parser, and a YAML syntax checker in one. As a checker it confirms your file is valid. As a parser it reads the YAML and shows you the resulting data structure as JSON. As a syntax checker it points to the exact line and character where the syntax breaks. Whether you call it a validator, a checker, a parser, or a linter, the job is the same: confirm your YAML is correct before you use it somewhere that matters.</p>
     <h3>Converting YAML to JSON</h3>
     <p>Every valid YAML document can be converted to JSON because YAML is a superset of JSON. When your YAML passes validation this tool automatically shows the JSON equivalent on the right. This is useful when you need to feed configuration into a system that expects JSON, when you want to inspect the exact parsed structure, or when you are debugging why a value is being read differently than you intended.</p>
 
@@ -87,6 +88,14 @@
       <div class="faq-item">
         <h4>Why does my Kubernetes YAML fail validation?</h4>
         <p>The most likely causes are a tab character somewhere in the file, inconsistent indentation between sections, or a missing space after a colon. This validator shows the exact line and error message so you can find and fix the problem. Note that this checks YAML syntax, not whether the fields match the Kubernetes schema.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is this an online YAML parser?</h4>
+        <p>Yes. This is a free online YAML parser that runs in your browser. It parses your YAML and shows the resulting structure as JSON so you can confirm it was read the way you intended. Nothing is installed and nothing is uploaded.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How do I check YAML syntax online?</h4>
+        <p>Paste your YAML into the box above. The syntax checker runs automatically and flags any error with the line where it occurs. Valid YAML shows a green result and the JSON version. This is the fastest way to check YAML syntax online without installing a command line tool.</p>
       </div>
       <div class="faq-item">
         <h4>Is my YAML safe?</h4>
