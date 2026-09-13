@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uipro init *)",
+      "WebSearch",
+      "Bash(npm install *)",
+      "Bash(python3 .claude/skills/ui-ux-pro-max/scripts/search.py \"developer tools SaaS utility dark minimal professional\" --design-system -p \"DevToolbox\")",
+      "Bash(py .claude/skills/ui-ux-pro-max/scripts/search.py \"developer tools SaaS utility dark minimal professional\" --design-system -p \"DevToolbox\")",
+      "Bash(py .claude/skills/ui-ux-pro-max/scripts/search.py \"animation accessibility z-index loading\" --domain ux)",
+      "Bash(py .claude/skills/ui-ux-pro-max/scripts/search.py \"layout responsive form button\" --stack html-tailwind)"
+    ]
+  }
+}
