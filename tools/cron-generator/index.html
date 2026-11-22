@@ -7,26 +7,31 @@
   <meta name="description" content="Generate and explain cron expressions online for free. Build cron schedules visually and get the expression instantly. No login required." />
   <link rel="stylesheet" href="../../style.css" />
   <style>
-    .cron-display { font-family: monospace; font-size: 1.4rem; color: #58a6ff; background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-    .cron-explain { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; font-size: 0.88rem; color: #8b949e; line-height: 1.6; }
-    .cron-explain span { color: #58a6ff; font-weight: 600; }
+    .cron-display { font-family: monospace; font-size: 1.4rem; color: var(--blue); background: var(--glass); border: 1px solid var(--line); border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; letter-spacing: 0.1em; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .cron-explain { background: var(--glass); border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1.5rem; font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .cron-explain span { color: var(--blue); font-weight: 600; }
     .field-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-    .field-item { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1rem; }
-    .field-item label { font-size: 0.72rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.5rem; }
-    .field-item input, .field-item select { width: 100%; background: #0d1117; border: 1px solid #21262d; border-radius: 6px; color: #58a6ff; font-family: monospace; font-size: 0.95rem; padding: 0.5rem 0.7rem; outline: none; }
-    .field-item input:focus, .field-item select:focus { border-color: #58a6ff; }
+    .field-item { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1rem; }
+    .field-item label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.5rem; }
+    .field-item input, .field-item select { width: 100%; background: var(--well-solid); border: 1px solid var(--line); border-radius: 6px; color: var(--blue); font-family: monospace; font-size: 0.95rem; padding: 0.5rem 0.7rem; outline: none; }
+    .field-item input:focus, .field-item select:focus { border-color: var(--blue); }
     .presets { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .preset-btn { background: #161b22; border: 1px solid #21262d; border-radius: 6px; color: #8b949e; font-size: 0.78rem; padding: 0.4rem 0.8rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-    .preset-btn:hover { border-color: #58a6ff; color: #58a6ff; opacity: 1; }
+    .preset-btn { background: var(--glass); border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font-size: 0.78rem; padding: 0.4rem 0.8rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .preset-btn:hover { border-color: var(--blue); color: var(--blue); opacity: 1; }
   </style>
   <link rel="canonical" href="https://tools.orviak.com/tools/cron-generator/" />
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Cron Expression Generator</span></nav>
   <h1 class="page-title">Cron Expression Generator</h1>
   <p class="page-subtitle">Build cron expressions visually. Select your schedule and get the cron expression instantly with a plain English explanation.</p>
 
@@ -38,7 +43,7 @@
   <div class="cron-explain" id="cron-explain">Runs every minute</div>
 
   <div style="margin-bottom:1rem">
-    <div style="font-size:0.72rem;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem">Quick Presets</div>
+    <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem">Quick Presets</div>
     <div class="presets">
       <button class="preset-btn" onclick="setPreset('* * * * *','Every minute')">Every minute</button>
       <button class="preset-btn" onclick="setPreset('0 * * * *','Every hour')">Every hour</button>
@@ -97,7 +102,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox - Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   function buildCron() {
     const m = document.getElementById('f-minute').value || '*';

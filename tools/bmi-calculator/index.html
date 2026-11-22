@@ -10,33 +10,38 @@
   <style>
     .calc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; max-width: 700px; }
     @media(max-width:600px) { .calc-wrap { grid-template-columns: 1fr; } }
-    .input-box { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.4rem; }
-    .input-box h3 { font-size: 0.82rem; font-weight: 700; color: #f0f6fc; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .input-box { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; }
+    .input-box h3 { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
     .field-row { margin-bottom: 0.9rem; }
-    .field-row label { display: block; font-size: 0.75rem; color: #8b949e; margin-bottom: 0.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .field-row label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
     .field-row input { width: 100%; }
     .unit-tabs { display: flex; gap: 0.4rem; margin-bottom: 1.2rem; }
-    .unit-tab { padding: 0.4rem 1rem; border-radius: 6px; border: 1px solid #21262d; background: transparent; color: #8b949e; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-    .unit-tab.active { background: #58a6ff; color: #000; border-color: #58a6ff; }
-    .result-box { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.4rem; text-align: center; }
-    .bmi-value { font-size: 4rem; font-weight: 800; font-family: monospace; color: #58a6ff; line-height: 1; margin-bottom: 0.5rem; }
+    .unit-tab { padding: 0.4rem 1rem; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .unit-tab.active { background: var(--blue); color: #000; border-color: var(--blue); }
+    .result-box { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; text-align: center; }
+    .bmi-value { font-size: 4rem; font-weight: 800; font-family: monospace; color: var(--blue); line-height: 1; margin-bottom: 0.5rem; }
     .bmi-category { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
     .bmi-scale { margin: 1rem 0; }
-    .scale-bar { height: 12px; border-radius: 99px; background: linear-gradient(to right, #58a6ff, #3fb950, #e3b341, #f85149); margin-bottom: 0.5rem; position: relative; }
+    .scale-bar { height: 12px; border-radius: 99px; background: linear-gradient(to right, var(--blue), var(--mint), var(--amber), var(--rose)); margin-bottom: 0.5rem; position: relative; }
     .scale-marker { width: 3px; height: 20px; background: #fff; position: absolute; top: -4px; border-radius: 99px; transition: left 0.3s; }
-    .scale-labels { display: flex; justify-content: space-between; font-size: 0.65rem; color: #8b949e; font-family: monospace; }
+    .scale-labels { display: flex; justify-content: space-between; font-size: 0.65rem; color: var(--muted); font-family: monospace; }
     .ranges-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem; }
-    .range-item { background: #0d1117; border-radius: 6px; padding: 0.5rem 0.7rem; font-size: 0.75rem; display: flex; justify-content: space-between; }
-    .range-item .r-label { color: #8b949e; }
-    .range-item .r-val { color: #e8e8f0; font-family: monospace; }
+    .range-item { background: var(--well-solid); border-radius: 6px; padding: 0.5rem 0.7rem; font-size: 0.75rem; display: flex; justify-content: space-between; }
+    .range-item .r-label { color: var(--muted); }
+    .range-item .r-val { color: var(--text); font-family: monospace; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">BMI Calculator</span></nav>
   <h1 class="page-title">BMI Calculator</h1>
   <p class="page-subtitle">Calculate your Body Mass Index using metric or imperial units. Get your BMI value and category instantly.</p>
 
@@ -80,7 +85,7 @@
     </div>
 
     <div class="result-box" id="result-box" style="display:none">
-      <div style="font-size:0.72rem;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Your BMI</div>
+      <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem">Your BMI</div>
       <div class="bmi-value" id="bmi-value">0</div>
       <div class="bmi-category" id="bmi-category"></div>
       <div class="bmi-scale">
@@ -150,7 +155,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   let unit = 'metric';
 

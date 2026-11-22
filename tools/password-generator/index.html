@@ -7,14 +7,14 @@
   <meta name="description" content="Generate strong random passwords online for free. Customise length and character types. No login required. Passwords never leave your browser." />
   <link rel="stylesheet" href="../../style.css" />
   <style>
-    .strength-bar { height: 6px; border-radius: 99px; background: #21262d; margin-top: 0.5rem; overflow: hidden; }
+    .strength-bar { height: 6px; border-radius: 99px; background: var(--line); margin-top: 0.5rem; overflow: hidden; }
     .strength-fill { height: 100%; border-radius: 99px; transition: width 0.3s, background 0.3s; }
-    .password-display { font-family: monospace; font-size: 1.1rem; color: #58a6ff; background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 1.2rem; word-break: break-all; line-height: 1.6; min-height: 60px; margin-bottom: 1rem; }
+    .password-display { font-family: monospace; font-size: 1.1rem; color: var(--blue); background: var(--glass); border: 1px solid var(--line); border-radius: 8px; padding: 1.2rem; word-break: break-all; line-height: 1.6; min-height: 60px; margin-bottom: 1rem; }
     .bulk-output { height: 260px; }
-    .option-row { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.6rem; font-size:0.85rem; color:#8b949e; }
-    .option-row input[type=checkbox] { accent-color:#58a6ff; width:16px; height:16px; }
-    .option-row input[type=range] { flex:1; accent-color:#58a6ff; }
-    .option-row span { color:#58a6ff; font-family:monospace; font-weight:700; min-width:30px; }
+    .option-row { display:flex; align-items:center; gap:0.5rem; margin-bottom:0.6rem; font-size:0.85rem; color:var(--muted); }
+    .option-row input[type=checkbox] { accent-color:var(--blue); width:16px; height:16px; }
+    .option-row input[type=range] { flex:1; accent-color:var(--blue); }
+    .option-row span { color:var(--blue); font-family:monospace; font-weight:700; min-width:30px; }
   </style>
   <link rel="canonical" href="https://tools.orviak.com/tools/password-generator/" />
 </head>
@@ -25,10 +25,15 @@
     <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div>
     <span class="logo-text">DevToolbox</span>
   </a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Password Generator</span></nav>
   <h1 class="page-title">Password Generator</h1>
   <p class="page-subtitle">Generate strong, random passwords instantly. Everything runs in your browser - passwords are never sent to any server.</p>
 
@@ -38,7 +43,7 @@
     <div class="status" id="strength-label" style="margin-bottom:1rem"></div>
 
     <div class="option-row">
-      <span style="min-width:80px;color:#8b949e">Length</span>
+      <span style="min-width:80px;color:var(--muted)">Length</span>
       <input type="range" id="length" min="4" max="128" value="16" oninput="updateLength()" />
       <span id="length-val">16</span>
     </div>
@@ -100,8 +105,16 @@
   </div>
 </div>
 
-<footer>
-  <p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox - Free developer tools.</p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
 </footer>
 
 <script>

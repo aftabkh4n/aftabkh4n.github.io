@@ -7,29 +7,34 @@
   <meta name="description" content="Generate a robots.txt file for your website online for free. Control which pages search engines can crawl. No login required." />
   <link rel="stylesheet" href="../../style.css" />
   <style>
-    .rule-item { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.2rem; margin-bottom: 0.75rem; }
+    .rule-item { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; margin-bottom: 0.75rem; }
     .rule-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
-    .rule-row label { font-size: 0.8rem; color: #8b949e; min-width: 80px; }
+    .rule-row label { font-size: 0.8rem; color: var(--muted); min-width: 80px; }
     .rule-row input { flex: 1; min-width: 200px; }
     .preset-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; margin-bottom: 1.5rem; }
-    .preset-card { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 0.9rem; cursor: pointer; transition: border-color 0.2s; }
-    .preset-card:hover { border-color: #58a6ff; }
-    .preset-card h4 { font-size: 0.85rem; font-weight: 600; color: #f0f6fc; margin-bottom: 0.2rem; }
-    .preset-card p { font-size: 0.75rem; color: #8b949e; }
+    .preset-card { background: var(--glass); border: 1px solid var(--line); border-radius: 8px; padding: 0.9rem; cursor: pointer; transition: border-color 0.2s; }
+    .preset-card:hover { border-color: var(--blue); }
+    .preset-card h4 { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .preset-card p { font-size: 0.75rem; color: var(--muted); }
   </style>
   <link rel="canonical" href="https://tools.orviak.com/tools/robots-generator/" />
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Robots.txt Generator</span></nav>
   <h1 class="page-title">Robots.txt Generator</h1>
   <p class="page-subtitle">Generate a robots.txt file for your website. Control which pages search engines can and cannot crawl.</p>
 
   <div style="margin-bottom:1.5rem">
-    <div style="font-size:0.72rem;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem">Quick Presets</div>
+    <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.8rem">Quick Presets</div>
     <div class="preset-grid">
       <div class="preset-card" onclick="setPreset('allow-all')">
         <h4>✅ Allow All</h4>
@@ -51,7 +56,7 @@
   </div>
 
   <div style="margin-bottom:1rem">
-    <div style="font-size:0.72rem;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem">Sitemap URL (optional)</div>
+    <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem">Sitemap URL (optional)</div>
     <input type="text" id="sitemap-url" placeholder="https://example.com/sitemap.xml" style="width:100%" oninput="generate()" />
   </div>
 
@@ -88,7 +93,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox - Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   let rules = [{ userAgent: '*', allow: ['/'], disallow: [] }];
 

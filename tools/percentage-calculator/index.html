@@ -8,21 +8,26 @@
   <link rel="canonical" href="https://tools.orviak.com/tools/percentage-calculator/" />
   <link rel="stylesheet" href="../../style.css" />
   <style>
-    .calc-section { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.4rem; margin-bottom: 1rem; }
-    .calc-section h3 { font-size: 0.88rem; font-weight: 700; color: #f0f6fc; margin-bottom: 1rem; }
+    .calc-section { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; margin-bottom: 1rem; }
+    .calc-section h3 { font-size: 0.88rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; }
     .calc-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
     .calc-row input { width: 100px; text-align: center; }
-    .calc-row span { font-size: 0.9rem; color: #8b949e; }
-    .calc-row .result { font-size: 1.2rem; font-weight: 700; color: #58a6ff; font-family: monospace; min-width: 80px; }
+    .calc-row span { font-size: 0.9rem; color: var(--muted); }
+    .calc-row .result { font-size: 1.2rem; font-weight: 700; color: var(--blue); font-family: monospace; min-width: 80px; }
     .calc-row button { padding: 0.4rem 0.9rem; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Percentage Calculator</span></nav>
   <h1 class="page-title">Percentage Calculator</h1>
   <p class="page-subtitle">Calculate percentages instantly. Six different percentage calculations in one place.</p>
 
@@ -144,7 +149,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   function fmt(n) {
     if (isNaN(n) || !isFinite(n)) return '—';
