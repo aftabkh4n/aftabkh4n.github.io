@@ -8,22 +8,27 @@
   <link rel="stylesheet" href="../../style.css" />
   <style>
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-    .stat-card { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.2rem; text-align: center; }
-    .stat-card .num { font-size: 2rem; font-weight: 800; color: #58a6ff; font-family: monospace; }
-    .stat-card .label { font-size: 0.72rem; color: #8b949e; margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-card { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; text-align: center; }
+    .stat-card .num { font-size: 2rem; font-weight: 800; color: var(--blue); font-family: monospace; }
+    .stat-card .label { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
     .limit-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
-    .limit-row label { font-size: 0.82rem; color: #8b949e; }
-    .limit-bar { height: 6px; border-radius: 99px; background: #21262d; margin-top: 0.5rem; overflow: hidden; }
-    .limit-fill { height: 100%; border-radius: 99px; transition: width 0.3s, background 0.3s; background: #3fb950; }
+    .limit-row label { font-size: 0.82rem; color: var(--muted); }
+    .limit-bar { height: 6px; border-radius: 99px; background: var(--line); margin-top: 0.5rem; overflow: hidden; }
+    .limit-fill { height: 100%; border-radius: 99px; transition: width 0.3s, background 0.3s; background: var(--mint); }
   </style>
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/string-length/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/string-length/" />
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">String Length Counter</span></nav>
   <h1 class="page-title">String Length Counter</h1>
   <p class="page-subtitle">Count characters, bytes, words and lines in any string. Set a limit to check if your string fits. Updates as you type.</p>
 
@@ -39,7 +44,7 @@
   <div class="limit-row">
     <label>Character limit:</label>
     <input type="number" id="limit" value="160" min="1" style="width:100px" oninput="updateStats()" />
-    <span style="font-size:0.82rem;color:#8b949e">Common limits: SMS=160, Tweet=280, Meta description=160, Title tag=60</span>
+    <span style="font-size:0.82rem;color:var(--muted)">Common limits: SMS=160, Tweet=280, Meta description=160, Title tag=60</span>
   </div>
   <div class="limit-bar"><div class="limit-fill" id="limit-fill" style="width:0%"></div></div>
   <div class="status" id="limit-status" style="margin-bottom:1rem"></div>
@@ -73,7 +78,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox - Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   function updateStats() {
     const text = document.getElementById('input').value;

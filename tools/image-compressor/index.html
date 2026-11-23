@@ -5,41 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Image Compressor Online — Compress JPG PNG Free | DevToolbox</title>
   <meta name="description" content="Compress images online for free. Reduce JPG and PNG file size without losing quality. No upload to server, everything runs in your browser." />
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/image-compressor/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/image-compressor/" />
   <link rel="stylesheet" href="../../style.css" />
   <style>
-    .upload-area { border: 2px dashed #21262d; border-radius: 12px; padding: 3rem 2rem; text-align: center; cursor: pointer; transition: border-color 0.2s; background: #161b22; margin-bottom: 1.5rem; }
-    .upload-area:hover, .upload-area.dragover { border-color: #58a6ff; }
-    .upload-area p { color: #8b949e; font-size: 0.9rem; margin-top: 0.5rem; }
+    .upload-area { border: 2px dashed var(--line); border-radius: 12px; padding: 3rem 2rem; text-align: center; cursor: pointer; transition: border-color 0.2s; background: var(--glass); margin-bottom: 1.5rem; }
+    .upload-area:hover, .upload-area.dragover { border-color: var(--blue); }
+    .upload-area p { color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
     .upload-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
     .upload-area input[type=file] { display: none; }
     .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
     @media(max-width:700px) { .preview-grid { grid-template-columns: 1fr; } }
-    .preview-box { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1rem; }
-    .preview-box label { font-size: 0.72rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.6rem; font-weight: 600; }
-    .preview-box img { width: 100%; border-radius: 6px; display: block; max-height: 300px; object-fit: contain; background: #0d1117; }
-    .preview-box .info { font-size: 0.8rem; color: #8b949e; margin-top: 0.6rem; font-family: monospace; }
-    .preview-box .info span { color: #58a6ff; font-weight: 700; }
-    .controls { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.5rem; }
+    .preview-box { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1rem; }
+    .preview-box label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.6rem; font-weight: 600; }
+    .preview-box img { width: 100%; border-radius: 6px; display: block; max-height: 300px; object-fit: contain; background: var(--well-solid); }
+    .preview-box .info { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; font-family: monospace; }
+    .preview-box .info span { color: var(--blue); font-weight: 700; }
+    .controls { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; margin-bottom: 1.5rem; }
     .control-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-    .control-row label { font-size: 0.82rem; color: #8b949e; min-width: 120px; }
-    .control-row input[type=range] { flex: 1; accent-color: #58a6ff; min-width: 150px; }
-    .control-row span { color: #58a6ff; font-family: monospace; font-weight: 700; min-width: 40px; }
+    .control-row label { font-size: 0.82rem; color: var(--muted); min-width: 120px; }
+    .control-row input[type=range] { flex: 1; accent-color: var(--blue); min-width: 150px; }
+    .control-row span { color: var(--blue); font-family: monospace; font-weight: 700; min-width: 40px; }
     .savings-badge { display: inline-block; background: #1a4d2e; color: #4ade80; border-radius: 6px; padding: 0.3rem 0.8rem; font-size: 0.82rem; font-weight: 700; font-family: monospace; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Image Compressor</span></nav>
   <h1 class="page-title">Image Compressor</h1>
   <p class="page-subtitle">Compress JPG and PNG images directly in your browser. No file is uploaded to any server. Adjust quality and download instantly.</p>
 
   <div class="upload-area" id="upload-area" onclick="document.getElementById('file-input').click()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)">
     <div class="upload-icon">🖼️</div>
-    <strong style="color:#f0f6fc">Click to upload or drag and drop</strong>
+    <strong style="color:var(--text)">Click to upload or drag and drop</strong>
     <p>Supports JPG and PNG. File stays in your browser.</p>
     <input type="file" id="file-input" accept="image/jpeg,image/png" onchange="handleFile(this.files[0])" />
   </div>
@@ -123,7 +128,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   let originalFile = null;
   let compressedBlob = null;

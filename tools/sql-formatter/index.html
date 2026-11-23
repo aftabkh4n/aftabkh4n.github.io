@@ -5,32 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SQL Formatter Online — Format & Beautify SQL Free | DevToolbox</title>
   <meta name="description" content="Free online SQL formatter and beautifier. Format, beautify and prettify messy SQL queries with proper indentation. Works with MySQL, PostgreSQL, SQL Server and Oracle. No login required." />
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/sql-formatter/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/sql-formatter/" />
   <link rel="stylesheet" href="../../style.css" />
   <style>
     .stats-row { display:flex; gap:1rem; margin-bottom:1rem; flex-wrap:wrap; }
-    .stat-pill { background:#161b22; border:1px solid #21262d; border-radius:8px; padding:0.5rem 0.9rem; font-size:0.82rem; color:#8b949e; }
-    .stat-pill span { color:#58a6ff; font-weight:700; font-family:monospace; }
-    select.dialect { background:#161b22; border:1px solid #21262d; color:#e8e8f0; padding:0.4rem 0.8rem; border-radius:6px; font-size:0.82rem; font-family:inherit; }
+    .stat-pill { background:var(--glass); border:1px solid var(--line); border-radius:8px; padding:0.5rem 0.9rem; font-size:0.82rem; color:var(--muted); }
+    .stat-pill span { color:var(--blue); font-weight:700; font-family:monospace; }
+    select.dialect { background:var(--glass); border:1px solid var(--line); color:var(--text); padding:0.4rem 0.8rem; border-radius:6px; font-size:0.82rem; font-family:inherit; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">SQL Formatter</span></nav>
   <h1 class="page-title">SQL Formatter</h1>
   <p class="page-subtitle">Paste your SQL query below to format and beautify it instantly. Transforms minified or messy SQL into clean readable code.</p>
 
   <div style="display:flex;gap:1rem;align-items:center;margin-bottom:1rem;flex-wrap:wrap">
-    <label style="font-size:0.82rem;color:#8b949e">Indent:</label>
+    <label style="font-size:0.82rem;color:var(--muted)">Indent:</label>
     <select id="indent">
       <option value="2">2 spaces</option>
       <option value="4" selected>4 spaces</option>
       <option value="tab">Tab</option>
     </select>
-    <label style="font-size:0.82rem;color:#8b949e">Keywords:</label>
+    <label style="font-size:0.82rem;color:var(--muted)">Keywords:</label>
     <select id="keyword-case">
       <option value="upper">UPPERCASE</option>
       <option value="lower">lowercase</option>
@@ -106,7 +111,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   const KEYWORDS = ['SELECT','FROM','WHERE','JOIN','LEFT JOIN','RIGHT JOIN','INNER JOIN','OUTER JOIN','FULL JOIN','CROSS JOIN','ON','AND','OR','NOT','IN','IS','NULL','AS','DISTINCT','ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET','INSERT INTO','VALUES','UPDATE','SET','DELETE FROM','CREATE TABLE','ALTER TABLE','DROP TABLE','INDEX','PRIMARY KEY','FOREIGN KEY','REFERENCES','CONSTRAINT','UNION','UNION ALL','EXCEPT','INTERSECT','WITH','CASE','WHEN','THEN','ELSE','END','EXISTS','BETWEEN','LIKE','ASC','DESC','TOP','COUNT','SUM','AVG','MIN','MAX','COALESCE','NULLIF'];
 

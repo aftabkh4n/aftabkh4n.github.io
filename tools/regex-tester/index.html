@@ -7,7 +7,7 @@
   <title>Regex Tester Online - Test Regular Expressions Free | DevToolbox</title>
   <meta name="description" content="Test and debug regular expressions online for free. Real-time match highlighting, match list, and group captures. No login required." />
   
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/regex-tester/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/regex-tester/" />
 </head>
 <body>
 
@@ -16,10 +16,16 @@
     <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div>
     <span class="logo-text">DevToolbox</span>
   </a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 
 <div class="container">
+
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Regex Tester</span></nav>
 
   <h1 class="page-title">Regex Tester</h1>
   <p class="page-subtitle">Test and debug regular expressions in real time. Matches highlight instantly as you type.</p>
@@ -59,7 +65,7 @@
 
   <div class="matches-box">
     <label>Matches</label>
-    <div id="matches-list"><span style="color:#8b949e;font-size:0.85rem">No matches yet.</span></div>
+    <div id="matches-list"><span style="color:var(--muted);font-size:0.85rem">No matches yet.</span></div>
   </div>
 
   <div class="cheatsheet">
@@ -117,15 +123,23 @@
 
       <div class="faq-item">
         <h4>Can I use this to validate email addresses?</h4>
-        <p>Yes. A common email regex is <code style="color:#58a6ff;font-family:monospace">[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}</code>. Paste it into the pattern box and test your email addresses in the test string box.</p>
+        <p>Yes. A common email regex is <code style="color:var(--blue);font-family:monospace">[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}</code>. Paste it into the pattern box and test your email addresses in the test string box.</p>
       </div>
 
     </div>
   </div>
 </div>
 
-<footer>
-  <p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox - Free developer tools. No login required.</p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
 </footer>
 
 <script>
@@ -150,7 +164,7 @@
     if (!pattern) {
       badge.textContent = 'Enter a pattern to start';
       badge.className = 'match-badge empty';
-      matchesList.innerHTML = '<span style="color:#8b949e;font-size:0.85rem">No matches yet.</span>';
+      matchesList.innerHTML = '<span style="color:var(--muted);font-size:0.85rem">No matches yet.</span>';
       document.getElementById('highlighted').innerHTML = '';
       return;
     }
@@ -162,7 +176,7 @@
       if (matches.length === 0) {
         badge.textContent = 'No matches found';
         badge.className = 'match-badge none';
-        matchesList.innerHTML = '<span style="color:#8b949e;font-size:0.85rem">No matches found.</span>';
+        matchesList.innerHTML = '<span style="color:var(--muted);font-size:0.85rem">No matches found.</span>';
         document.getElementById('highlighted').innerHTML = escapeHtml(testStr);
         return;
       }

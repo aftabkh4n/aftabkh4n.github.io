@@ -5,15 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SVG to CSS Converter Online — Free Tool | DevToolbox</title>
   <meta name="description" content="Convert SVG to CSS background-image data URI online for free. Use SVGs as CSS backgrounds without extra HTTP requests. No login required." />
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/svg-to-css/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/svg-to-css/" />
   <link rel="stylesheet" href="../../style.css" />
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">SVG to CSS Converter</span></nav>
   <h1 class="page-title">SVG to CSS Converter</h1>
   <p class="page-subtitle">Convert SVG code into a CSS background-image data URI. Use SVGs directly in CSS without extra HTTP requests.</p>
 
@@ -38,8 +43,8 @@
   </div>
 
   <div id="preview-wrap" style="display:none;margin-top:1.5rem">
-    <div style="font-size:0.75rem;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;font-weight:600">Preview</div>
-    <div id="preview-box" style="width:100px;height:100px;border:1px solid #21262d;border-radius:8px;background-repeat:no-repeat;background-position:center;background-size:contain"></div>
+    <div style="font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;font-weight:600">Preview</div>
+    <div id="preview-box" style="width:100px;height:100px;border:1px solid var(--line);border-radius:8px;background-repeat:no-repeat;background-position:center;background-size:contain"></div>
   </div>
 
   <hr class="divider" />
@@ -77,7 +82,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   function svgToDataUri(svg) {
     const encoded = svg

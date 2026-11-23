@@ -5,47 +5,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Color Picker Online — Free Color Selector Tool | DevToolbox</title>
   <meta name="description" content="Pick colors online for free. Get HEX, RGB, HSL values instantly. Save your color palette. No login required." />
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/color-picker/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/color-picker/" />
   <link rel="stylesheet" href="../../style.css" />
   <style>
     .picker-main { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
     @media(max-width:700px) { .picker-main { grid-template-columns: 1fr; } }
-    .color-swatch { width: 100%; height: 200px; border-radius: 12px; border: 1px solid #21262d; transition: background 0.2s; }
+    .color-swatch { width: 100%; height: 200px; border-radius: 12px; border: 1px solid var(--line); transition: background 0.2s; }
     .picker-controls { display: flex; flex-direction: column; gap: 1rem; }
     .picker-row { display: flex; align-items: center; gap: 0.75rem; }
-    .picker-row label { font-size: 0.75rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; min-width: 30px; font-weight: 600; }
+    .picker-row label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; min-width: 30px; font-weight: 600; }
     .picker-row input[type=range] { flex: 1; height: 8px; border-radius: 99px; outline: none; border: none; }
-    .picker-row span { font-family: monospace; font-size: 0.85rem; color: #58a6ff; min-width: 35px; text-align: right; }
-    input[type=color] { width: 100%; height: 60px; border: 1px solid #21262d; border-radius: 8px; background: #161b22; cursor: pointer; padding: 4px; }
+    .picker-row span { font-family: monospace; font-size: 0.85rem; color: var(--blue); min-width: 35px; text-align: right; }
+    input[type=color] { width: 100%; height: 60px; border: 1px solid var(--line); border-radius: 8px; background: var(--glass); cursor: pointer; padding: 4px; }
     .values-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; margin-bottom: 1.5rem; }
-    .value-item { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 0.9rem; }
-    .value-item .v-label { font-size: 0.7rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
-    .value-item .v-value { font-family: monospace; font-size: 0.92rem; color: #e8e8f0; display: flex; align-items: center; justify-content: space-between; }
-    .copy-btn { background: transparent; border: none; color: #8b949e; font-size: 0.75rem; cursor: pointer; padding: 0; font-weight: 600; }
-    .copy-btn:hover { color: #58a6ff; }
-    .palette-section { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.2rem; margin-bottom: 1.5rem; }
-    .palette-section h3 { font-size: 0.82rem; font-weight: 700; color: #f0f6fc; margin-bottom: 0.8rem; }
+    .value-item { background: var(--glass); border: 1px solid var(--line); border-radius: 8px; padding: 0.9rem; }
+    .value-item .v-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+    .value-item .v-value { font-family: monospace; font-size: 0.92rem; color: var(--text); display: flex; align-items: center; justify-content: space-between; }
+    .copy-btn { background: transparent; border: none; color: var(--muted); font-size: 0.75rem; cursor: pointer; padding: 0; font-weight: 600; }
+    .copy-btn:hover { color: var(--blue); }
+    .palette-section { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; margin-bottom: 1.5rem; }
+    .palette-section h3 { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 0.8rem; }
     .palette-swatches { display: flex; flex-wrap: wrap; gap: 0.5rem; }
     .palette-swatch { width: 44px; height: 44px; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; position: relative; }
     .palette-swatch:hover { transform: scale(1.1); border-color: #fff4; }
-    .palette-swatch .remove { position: absolute; top: -6px; right: -6px; background: #f85149; color: #fff; border-radius: 50%; width: 16px; height: 16px; font-size: 10px; display: none; align-items: center; justify-content: center; cursor: pointer; font-weight: 700; }
+    .palette-swatch .remove { position: absolute; top: -6px; right: -6px; background: var(--rose); color: #fff; border-radius: 50%; width: 16px; height: 16px; font-size: 10px; display: none; align-items: center; justify-content: center; cursor: pointer; font-weight: 700; }
     .palette-swatch:hover .remove { display: flex; }
-    .add-to-palette { width: 44px; height: 44px; border-radius: 8px; border: 2px dashed #21262d; background: transparent; color: #8b949e; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
-    .add-to-palette:hover { border-color: #58a6ff; color: #58a6ff; opacity: 1; }
+    .add-to-palette { width: 44px; height: 44px; border-radius: 8px; border: 2px dashed var(--line); background: transparent; color: var(--muted); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+    .add-to-palette:hover { border-color: var(--blue); color: var(--blue); opacity: 1; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Color Picker</span></nav>
   <h1 class="page-title">Color Picker</h1>
   <p class="page-subtitle">Pick any color and get HEX, RGB, HSL and CSS values instantly. Save colors to your palette.</p>
 
   <div class="picker-main">
     <div>
-      <div class="color-swatch" id="swatch" style="background:#58a6ff"></div>
+      <div class="color-swatch" id="swatch" style="background:var(--blue)"></div>
       <div style="margin-top:0.75rem">
         <input type="color" id="color-wheel" value="#58a6ff" oninput="onColorWheel()" />
       </div>
@@ -53,32 +58,32 @@
     <div class="picker-controls">
       <div class="picker-row">
         <label>R</label>
-        <input type="range" id="r" min="0" max="255" value="88" oninput="onSlider()" style="accent-color:#f85149" />
+        <input type="range" id="r" min="0" max="255" value="88" oninput="onSlider()" style="accent-color:var(--rose)" />
         <span id="r-val">88</span>
       </div>
       <div class="picker-row">
         <label>G</label>
-        <input type="range" id="g" min="0" max="255" value="166" oninput="onSlider()" style="accent-color:#3fb950" />
+        <input type="range" id="g" min="0" max="255" value="166" oninput="onSlider()" style="accent-color:var(--mint)" />
         <span id="g-val">166</span>
       </div>
       <div class="picker-row">
         <label>B</label>
-        <input type="range" id="b" min="0" max="255" value="255" oninput="onSlider()" style="accent-color:#58a6ff" />
+        <input type="range" id="b" min="0" max="255" value="255" oninput="onSlider()" style="accent-color:var(--blue)" />
         <span id="b-val">255</span>
       </div>
       <div class="picker-row">
         <label>H</label>
-        <input type="range" id="h" min="0" max="360" value="210" oninput="onHSL()" style="accent-color:#e3b341" />
+        <input type="range" id="h" min="0" max="360" value="210" oninput="onHSL()" style="accent-color:var(--amber)" />
         <span id="h-val">210°</span>
       </div>
       <div class="picker-row">
         <label>S</label>
-        <input type="range" id="s" min="0" max="100" value="100" oninput="onHSL()" style="accent-color:#e3b341" />
+        <input type="range" id="s" min="0" max="100" value="100" oninput="onHSL()" style="accent-color:var(--amber)" />
         <span id="s-val">100%</span>
       </div>
       <div class="picker-row">
         <label>L</label>
-        <input type="range" id="l" min="0" max="100" value="67" oninput="onHSL()" style="accent-color:#e3b341" />
+        <input type="range" id="l" min="0" max="100" value="67" oninput="onHSL()" style="accent-color:var(--amber)" />
         <span id="l-val">67%</span>
       </div>
     </div>
@@ -119,7 +124,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   let r = 88, g = 166, b = 255;
   let palette = JSON.parse(localStorage.getItem('color-palette') || '[]');

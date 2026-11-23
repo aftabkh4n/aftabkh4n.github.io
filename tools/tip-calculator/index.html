@@ -5,34 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tip Calculator Online — Calculate Tips and Split Bills Free | DevToolbox</title>
   <meta name="description" content="Calculate tips and split bills online for free. Enter the bill amount, tip percentage and number of people to split. No login required." />
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/tip-calculator/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/tip-calculator/" />
   <link rel="stylesheet" href="../../style.css" />
   <style>
     .calc-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; max-width: 700px; }
     @media(max-width:600px) { .calc-wrap { grid-template-columns: 1fr; } }
-    .input-box { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.4rem; }
-    .input-box h3 { font-size: 0.82rem; font-weight: 700; color: #f0f6fc; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .input-box { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; }
+    .input-box h3 { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
     .field-row { margin-bottom: 1rem; }
-    .field-row label { display: block; font-size: 0.75rem; color: #8b949e; margin-bottom: 0.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+    .field-row label { display: block; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
     .field-row input { width: 100%; }
     .tip-presets { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .tip-preset { padding: 0.35rem 0.75rem; border-radius: 6px; border: 1px solid #21262d; background: transparent; color: #8b949e; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-    .tip-preset.active { background: #58a6ff; color: #000; border-color: #58a6ff; }
-    .result-box { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.4rem; }
-    .result-box h3 { font-size: 0.82rem; font-weight: 700; color: #f0f6fc; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
-    .result-row { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid #21262d; }
+    .tip-preset { padding: 0.35rem 0.75rem; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .tip-preset.active { background: var(--blue); color: #000; border-color: var(--blue); }
+    .result-box { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.4rem; }
+    .result-box h3 { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .result-row { display: flex; justify-content: space-between; align-items: center; padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
     .result-row:last-child { border-bottom: none; }
-    .result-row .r-label { font-size: 0.85rem; color: #8b949e; }
-    .result-row .r-val { font-size: 1rem; font-weight: 700; color: #f0f6fc; font-family: monospace; }
-    .result-row.highlight .r-val { color: #58a6ff; font-size: 1.3rem; }
+    .result-row .r-label { font-size: 0.85rem; color: var(--muted); }
+    .result-row .r-val { font-size: 1rem; font-weight: 700; color: var(--text); font-family: monospace; }
+    .result-row.highlight .r-val { color: var(--blue); font-size: 1.3rem; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Tip Calculator</span></nav>
   <h1 class="page-title">Tip Calculator</h1>
   <p class="page-subtitle">Calculate the tip amount and split the bill between any number of people instantly.</p>
 
@@ -92,7 +97,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   function setTip(pct, btn) {
     document.getElementById('tip-pct').value = pct;

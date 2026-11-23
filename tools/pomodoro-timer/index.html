@@ -5,43 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pomodoro Timer Online — Free Focus Timer | DevToolbox</title>
   <meta name="description" content="Free online Pomodoro timer. 25 minute focus sessions with short and long breaks. No login required. Works in your browser." />
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/pomodoro-timer/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/pomodoro-timer/" />
   <link rel="stylesheet" href="../../style.css" />
   <style>
     .timer-wrap { max-width: 480px; margin: 0 auto 2rem; text-align: center; }
     .mode-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; }
-    .mode-tab { padding: 0.5rem 1.2rem; border-radius: 99px; border: 1px solid #21262d; background: transparent; color: #8b949e; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-    .mode-tab.active { background: #58a6ff; color: #000; border-color: #58a6ff; }
-    .timer-display { font-size: 6rem; font-weight: 800; font-family: monospace; color: #f0f6fc; letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.5rem; }
-    .timer-label { font-size: 0.85rem; color: #8b949e; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .mode-tab { padding: 0.5rem 1.2rem; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--muted); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .mode-tab.active { background: var(--blue); color: #000; border-color: var(--blue); }
+    .timer-display { font-size: 6rem; font-weight: 800; font-family: monospace; color: var(--text); letter-spacing: -0.04em; line-height: 1; margin-bottom: 0.5rem; }
+    .timer-label { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
     .timer-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; }
     .timer-btn { width: 60px; height: 60px; border-radius: 50%; border: none; font-size: 1.2rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
     .timer-btn:hover { transform: scale(1.08); opacity: 1; }
-    .btn-start { background: #58a6ff; color: #000; width: 80px; height: 80px; font-size: 1.5rem; }
-    .btn-reset { background: #21262d; color: #8b949e; }
-    .btn-skip { background: #21262d; color: #8b949e; }
+    .btn-start { background: var(--blue); color: #000; width: 80px; height: 80px; font-size: 1.5rem; }
+    .btn-reset { background: var(--line); color: var(--muted); }
+    .btn-skip { background: var(--line); color: var(--muted); }
     .progress-ring { margin: 0 auto 1.5rem; }
-    .session-count { font-size: 0.82rem; color: #8b949e; margin-bottom: 1.5rem; }
+    .session-count { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.5rem; }
     .session-dots { display: flex; gap: 0.4rem; justify-content: center; margin-top: 0.4rem; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: #21262d; transition: background 0.3s; }
-    .dot.filled { background: #58a6ff; }
-    .settings-box { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.2rem; max-width: 480px; margin: 0 auto 1.5rem; }
-    .settings-box h3 { font-size: 0.82rem; font-weight: 700; color: #f0f6fc; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); transition: background 0.3s; }
+    .dot.filled { background: var(--blue); }
+    .settings-box { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; max-width: 480px; margin: 0 auto 1.5rem; }
+    .settings-box h3 { font-size: 0.82rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.06em; }
     .setting-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.7rem; }
-    .setting-row label { font-size: 0.82rem; color: #8b949e; flex: 1; }
+    .setting-row label { font-size: 0.82rem; color: var(--muted); flex: 1; }
     .setting-row input[type=number] { width: 70px; text-align: center; }
     .stats-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .stat-pill { background: #161b22; border: 1px solid #21262d; border-radius: 8px; padding: 0.6rem 1rem; text-align: center; }
-    .stat-pill .num { font-size: 1.2rem; font-weight: 800; color: #58a6ff; font-family: monospace; }
-    .stat-pill .lbl { font-size: 0.68rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.06em; }
+    .stat-pill { background: var(--glass); border: 1px solid var(--line); border-radius: 8px; padding: 0.6rem 1rem; text-align: center; }
+    .stat-pill .num { font-size: 1.2rem; font-weight: 800; color: var(--blue); font-family: monospace; }
+    .stat-pill .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">Pomodoro Timer</span></nav>
   <h1 class="page-title">Pomodoro Timer</h1>
   <p class="page-subtitle">Stay focused with 25 minute work sessions and short breaks. The Pomodoro Technique helps you maintain concentration and avoid burnout.</p>
 
@@ -53,8 +58,8 @@
     </div>
 
     <svg class="progress-ring" width="220" height="220" viewBox="0 0 220 220">
-      <circle cx="110" cy="110" r="100" fill="none" stroke="#21262d" stroke-width="8"/>
-      <circle id="progress-circle" cx="110" cy="110" r="100" fill="none" stroke="#58a6ff" stroke-width="8"
+      <circle cx="110" cy="110" r="100" fill="none" stroke="rgba(160,175,255,0.13)" stroke-width="8"/>
+      <circle id="progress-circle" cx="110" cy="110" r="100" fill="none" stroke="#7DB4FF" stroke-width="8"
         stroke-linecap="round" stroke-dasharray="628" stroke-dashoffset="0"
         transform="rotate(-90 110 110)" style="transition:stroke-dashoffset 1s linear"/>
     </svg>
@@ -99,7 +104,7 @@
       <input type="number" id="sessions-before-long" value="4" min="2" max="8" onchange="applySettings()" />
     </div>
     <div class="setting-row">
-      <label><input type="checkbox" id="auto-start" style="accent-color:#58a6ff;margin-right:0.4rem" /> Auto-start next session</label>
+      <label><input type="checkbox" id="auto-start" style="accent-color:var(--blue);margin-right:0.4rem" /> Auto-start next session</label>
     </div>
   </div>
 
@@ -161,7 +166,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   const MODES = { focus: 'Focus Time', short: 'Short Break', long: 'Long Break' };
   let mode = 'focus';

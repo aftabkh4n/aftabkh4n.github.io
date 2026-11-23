@@ -5,36 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CSS Box Shadow Generator Online — Free Tool | DevToolbox</title>
   <meta name="description" content="Generate CSS box shadows visually online for free. Adjust offset, blur, spread and color and copy the CSS instantly. No login required." />
-  <link rel="canonical" href="https://aftabkh4n.github.io/tools/box-shadow-generator/" />
+  <link rel="canonical" href="https://tools.orviak.com/tools/box-shadow-generator/" />
   <link rel="stylesheet" href="../../style.css" />
   <style>
     .generator-wrap { display: grid; grid-template-columns: 300px 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
     @media(max-width:800px) { .generator-wrap { grid-template-columns: 1fr; } }
-    .controls-panel { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.2rem; }
+    .controls-panel { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; }
     .control-group { margin-bottom: 1rem; }
-    .control-group label { display: flex; justify-content: space-between; font-size: 0.72rem; color: #8b949e; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; font-weight: 600; }
-    .control-group label span { color: #58a6ff; font-family: monospace; }
-    .control-group input[type=range] { width: 100%; accent-color: #58a6ff; }
-    input[type=color] { width: 100%; height: 36px; border: 1px solid #21262d; border-radius: 6px; background: #161b22; cursor: pointer; padding: 2px; }
-    .control-group input[type=checkbox] { accent-color: #58a6ff; margin-right: 0.4rem; }
-    .preview-panel { background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 1.2rem; display: flex; align-items: center; justify-content: center; min-height: 280px; }
-    .preview-box { width: 160px; height: 160px; background: #e8e8f0; border-radius: 8px; transition: box-shadow 0.2s; }
-    .code-output { background: #0d1117; border: 1px solid #21262d; border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.9rem; color: #58a6ff; margin-bottom: 1rem; word-break: break-all; }
+    .control-group label { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; font-weight: 600; }
+    .control-group label span { color: var(--blue); font-family: monospace; }
+    .control-group input[type=range] { width: 100%; accent-color: var(--blue); }
+    input[type=color] { width: 100%; height: 36px; border: 1px solid var(--line); border-radius: 6px; background: var(--glass); cursor: pointer; padding: 2px; }
+    .control-group input[type=checkbox] { accent-color: var(--blue); margin-right: 0.4rem; }
+    .preview-panel { background: var(--glass); border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem; display: flex; align-items: center; justify-content: center; min-height: 280px; }
+    .preview-box { width: 160px; height: 160px; background: var(--text); border-radius: 8px; transition: box-shadow 0.2s; }
+    .code-output { background: var(--well-solid); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; font-family: monospace; font-size: 0.9rem; color: var(--blue); margin-bottom: 1rem; word-break: break-all; }
     .presets { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .preset-btn { background: #161b22; border: 1px solid #21262d; border-radius: 6px; color: #8b949e; font-size: 0.75rem; padding: 0.35rem 0.75rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
-    .preset-btn:hover { border-color: #58a6ff; color: #58a6ff; opacity: 1; }
+    .preset-btn { background: var(--glass); border: 1px solid var(--line); border-radius: 6px; color: var(--muted); font-size: 0.75rem; padding: 0.35rem 0.75rem; cursor: pointer; transition: all 0.2s; font-family: inherit; }
+    .preset-btn:hover { border-color: var(--blue); color: var(--blue); opacity: 1; }
   </style>
 </head>
 <body>
 <header>
   <a href="/" class="logo" aria-label="DevToolbox home"><div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.268a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" /></svg></div><span class="logo-text">DevToolbox</span></a>
-  <div class="header-right">Free tools for developers</div>
+  <nav class="site-nav" aria-label="Main">
+    <a href="/">All tools</a>
+    <a href="/about.html">About</a>
+    <a href="https://orviak.com">Orviak</a>
+  </nav>
 </header>
 <div class="container">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">All tools</a><span aria-hidden="true">/</span><span aria-current="page">CSS Box Shadow Generator</span></nav>
   <h1 class="page-title">CSS Box Shadow Generator</h1>
   <p class="page-subtitle">Create CSS box shadows visually. Adjust the sliders and copy the CSS code instantly.</p>
 
-  <div style="margin-bottom:0.6rem;font-size:0.72rem;color:#8b949e;text-transform:uppercase;letter-spacing:0.08em;font-weight:600">Presets</div>
+  <div style="margin-bottom:0.6rem;font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600">Presets</div>
   <div class="presets">
     <button class="preset-btn" onclick="applyPreset(2,4,6,0,'rgba(0,0,0,0.1)',false)">Subtle</button>
     <button class="preset-btn" onclick="applyPreset(0,4,20,0,'rgba(0,0,0,0.15)',false)">Soft</button>
@@ -114,7 +119,17 @@
     </div>
   </div>
 </div>
-<footer><p><a href="/">← Back to all tools</a> &nbsp;|&nbsp; DevToolbox — Free developer tools.</p></footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>DevToolbox is built and maintained by <a href="https://orviak.com">Orviak</a>. Every tool runs in your browser, so nothing you paste is uploaded.</p>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/">All tools</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="https://github.com/aftabkh4n/aftabkh4n.github.io">Source on GitHub</a>
+    </nav>
+  </div>
+</footer>
 <script>
   function hexToRgb(hex) {
     hex = hex.replace('#','');
